@@ -1,0 +1,17 @@
+--- 
+title: "Publiseringsrapport NTNU"
+author: "Henrik Karlstrøm"
+date: "`r Sys.Date()`"
+bibliography:
+- book.bib
+description: En gjennomgang av NTNUs publiseringsvirksomhet i perioden 2010-2018.
+documentclass: book
+link-citations: yes
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+# Forord
+
+Denne rapporten gir deg en oversikt over den vitenskapelige publiseringen ved Norges teknisk-naturvitenskapelige universitet så langt dette tiåret. Den er på ingen måte uttømmende, men gir en litt mer detaljert gjennomgang av noen aspekter ved publiseringsvirksomheten enn du vil få om du ser på den utmerkede men begrensete oversikten på [Cristins sider](https://www.cristin.no/statistikk-og-rapporter/nvi-rapportering/index.html). 
+

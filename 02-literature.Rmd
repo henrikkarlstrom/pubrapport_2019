@@ -1,0 +1,41 @@
+# Hva publiserer NTNU?
+
+```{r OAplot, echo = FALSE}
+library(tidyverse)
+library(ntnupal)
+library(rcristin)
+
+ntnudata <- readRDS("ntnudata.rds")
+ntnudata$open_access <- forcats::fct_rev(factor(ntnudata$open_access))
+ntnudata$open_access <- ntnudata$open_access %>%
+  recode(none = "Ikke arkivert",
+         green = "Arkivert",
+         gold = "Gull OA")
+
+ntnudata %>%
+  distinct(cristin_result_id, .keep_all = TRUE) %>%
+  filter(between(as.numeric(year_published), 2010, 2018)) %>%
+  ggplot(aes(x = year_published,
+             fill = open_access)) +
+  geom_bar() +
+  geom_hline(yintercept = 0,
+             size = 1,
+             colour = "#333333") +
+  labs(title = "OA-andelen har økt",
+       subtitle = "Egenarkiveringen har spesielt kraftig økning") +
+  theme(plot.title = element_text(size = 20,
+                                  face = "bold",
+                                  color = "#222222"),
+        plot.subtitle = element_text(size = 18),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 12,
+                                   color = "#222222"),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.grid.major.y = element_line(color="#cbcbcb"),
+        panel.grid.major.x = element_blank(),
+        panel.background = element_blank()
+        ) +
+  scale_fill_ntnu(discrete = TRUE, palette = "cool")
+```
