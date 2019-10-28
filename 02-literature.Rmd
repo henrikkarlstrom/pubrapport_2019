@@ -1,4 +1,5 @@
 # Hva publiserer NTNU?
+Hvem vet
 
 ```{r OAplot, echo = FALSE}
 library(tidyverse)
