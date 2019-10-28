@@ -11,6 +11,13 @@ site: bookdown::bookdown_site
 biblio-style: apalike
 ---
 
+```{r setup, echo = FALSE}
+library(tidyverse)
+library(ntnupal)
+library(rcristin)
+library(gt)
+```
+
 # Forord
 
 Denne rapporten gir deg en oversikt over den vitenskapelige publiseringen ved Norges teknisk-naturvitenskapelige universitet så langt dette tiåret. Den er på ingen måte uttømmende, men gir en litt mer detaljert gjennomgang av noen aspekter ved publiseringsvirksomheten enn du vil få om du ser på den utmerkede men begrensete oversikten på [Cristins sider](https://www.cristin.no/statistikk-og-rapporter/nvi-rapportering/index.html). 

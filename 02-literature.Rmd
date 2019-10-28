@@ -1,10 +1,25 @@
 # Hva publiserer NTNU?
-Hvem vet
+
+```{r kategori, echo = FALSE}
+publisering <- readRDS("allepub.rds") %>%
+  distinct(cristin_result_id, .keep_all = TRUE) %>%
+  filter(year_published > 2009,
+         year_published < 2019) %>%
+  group_by(year_published, category.name.en) %>%
+  summarise(Antall = n()) %>%
+  pivot_wider(names_from = category.name.en,
+              values_from = Antall) %>%
+  set_names(c("År", "Artikkel", "Antologikapittel", "Monografi"))
+
+publisering %>%
+  gt() %>%
+  tab_header(
+    title = "Publiseringskategorier ved NTNU",
+    subtitle = "Vitenskapelig publisering 2010-2018"
+  )
+```
 
 ```{r OAplot, echo = FALSE}
-library(tidyverse)
-library(ntnupal)
-library(rcristin)
 
 ntnudata <- readRDS("ntnudata.rds")
 ntnudata$open_access <- forcats::fct_rev(factor(ntnudata$open_access))
